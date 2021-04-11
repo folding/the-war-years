@@ -119,12 +119,15 @@ else if(state == states.ready_attack)
 {
 	image_index = 0;
 	state = states.attack;
+	
 }
 else if(state == states.attack)
 {
 	if(image_index > image_number -1)
 	{
 		state = states.alert;
+		gamepad_set_vibration(0,1,1);
+		alarm[0]=room_speed*.2;
 	}
 	
 	
