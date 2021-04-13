@@ -5,7 +5,10 @@
 if(place_meeting(x,y,oFirePunch)){
 
 var punch = instance_nearest(x,y,oFirePunch);
+if(instance_exists(punch))
+{
 instance_destroy(punch.id,false);
+}
 instance_destroy(id,true);
 score++;
 
@@ -39,14 +42,23 @@ else if(state == states.wander)
 	//wander behavior
 	counter = counter+1;
 	
-	//collide with walls
-	if(place_meeting(x + moveX,y,oWall))
+	//just don't move if you are stuck on a wall
+	if(place_meeting(x+moveX,y,oWall))
 	{
-		//just don't move if you are stuck on a wall
-		moveX = 0;
+	while(!place_meeting(x+sign(moveX),y,oWall) and (moveX > 1 or moveX < 1))
+	{
+		x = x+sign(moveX);
 	}
-	if(place_meeting(x ,y+moveY,oWall)){
-		moveY = 0;
+	moveX = 0;
+	}
+	
+	if(place_meeting(x ,y+moveY,oWall))
+	{
+	while(!place_meeting(x ,y+sign(moveY),oWall) and (moveY > 1 or moveY < 1))
+	{
+		y = y + sign(moveY);
+	}
+	moveY = 0;
 	}
 	
 	x += moveX;
@@ -55,6 +67,7 @@ else if(state == states.wander)
 	direction = point_direction(x, y, oPlayer.x, oPlayer.y);
 	
 	image_angle = point_direction(x,y,x+moveX,y+moveY);
+	
 	
 	if(counter >= room_speed * 3)
 	{
@@ -79,7 +92,11 @@ else if(state == states.wander)
 	//set sprites
 	sprite_index = sbadguy;
 	//mirror the sprite when it is moving in the negative direction
-	image_xscale = sign(moveX);
+	
+	var next_xscale = sign(moveX);
+
+	if(next_xscale != 0)
+	image_xscale = next_xscale;
 }
 else if(state == states.alert)
 {
@@ -90,27 +107,29 @@ else if(state == states.alert)
 	moveX = lengthdir_x(spd,my_dir);
 	moveY = lengthdir_y(spd,my_dir);
 	
-	//collide with walls
-	if(place_meeting(x + moveX,y,oWall))
+	//just don't move if you are stuck on a wall
+	if(place_meeting(x+moveX,y,oWall))
 	{
-		//just don't move if you are stuck on a wall
-		moveX = 0;
+	while(!place_meeting(x+sign(moveX),y,oWall) and (moveX > 1 or moveX < 1))
+	{
+		x = x+sign(moveX);
 	}
-	if(place_meeting(x ,y+moveY,oWall)){
-		moveY = 0;
+	moveX = 0;
 	}
 	
-	
-	//transition triggers
-	if(!collision_circle(x,y,200,oPlayer,false,false))
+	if(place_meeting(x ,y+moveY,oWall))
 	{
-		//if we are beyond 200 away from player go to idle state
-		state = states.idle;
+	while(!place_meeting(x ,y+sign(moveY),oWall) and (moveY > 1 or moveY < 1))
+	{
+		y = y + sign(moveY);
 	}
-	if(collision_circle(x,y,100,oPlayer,false,false))
+	moveY = 0;
+	}
+	
+	if(moveX == 0 and moveY == 0)
 	{
-		//if we are less than 100 away, then ATTACK!
-		state = states.ready_attack;
+		//we're stuck on a wall.. goto wander state
+	    state = states.wander;
 	}
 	
 	x += moveX;
@@ -122,7 +141,11 @@ else if(state == states.alert)
 	
 	//set sprites
 	sprite_index = sbadguy;
-	image_xscale = sign(moveX);
+	
+var next_xscale = sign(moveX);
+
+if(next_xscale != 0)
+image_xscale = next_xscale;
 	
 }
 else if(state == states.ready_attack)

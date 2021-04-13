@@ -12,7 +12,7 @@ attack
 state = states.idle;
 
 counter = 0;
-spd = .5;
+spd = 1.5;
 talk = "idle";
 
 my_dir = irandom_range(0,359);

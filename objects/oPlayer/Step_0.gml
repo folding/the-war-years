@@ -92,6 +92,24 @@ if(gamepad_button_check_pressed(0,gp_face1))
 	instance_create_layer(x,y,"Instances",oFirePunch);
 }
 
+if(gamepad_button_check_pressed(0,gp_face2))
+{
+	image_index = 0;
+	playerState = playerStates.punch
+	//score = score +1;
+	
+	for (var i = 0; i < instance_number(obadguy); ++i;)
+    {
+     var enemy = instance_find(obadguy,i);
+	 
+	 if(enemy.x > x){
+	instance_create_layer(enemy.x, enemy.y,"Instances",oFirePunch);
+	 }
+    }
+	
+	
+	
+}
 
 //check horizontal collision with wall
 if(place_meeting(x + xSpeed,y,oWall))
