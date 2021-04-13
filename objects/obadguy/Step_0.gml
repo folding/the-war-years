@@ -1,6 +1,16 @@
 /// @description Insert description here
 // You can write your code in this editor
 
+
+if(place_meeting(x,y,oFirePunch)){
+
+var punch = instance_nearest(x,y,oFirePunch);
+instance_destroy(punch.id,false);
+instance_destroy(id,true);
+score++;
+
+}
+
 if(state == states.idle)
 {
 	//idle behavior
@@ -123,11 +133,22 @@ else if(state == states.ready_attack)
 }
 else if(state == states.attack)
 {
+	
+	if(myPunch == noone)
+	{
+		myPunch = instance_create_layer(x+20,y,"Instances",oBadGuyPunch);
+		myPunch.creator = id;
+		myPunch.image_xscale = image_xscale;
+		image_index = 0;
+	}
+	
 	if(image_index > image_number -1)
 	{
 		state = states.alert;
 		gamepad_set_vibration(0,1,1);
 		alarm[0]=room_speed*.2;
+		myPunch = noone;
+		
 	}
 	
 	
