@@ -83,7 +83,7 @@ else//if no input is detected lets slow the man down little by little
 	}
 }
 
-if(gamepad_button_check(0,gp_face1))
+if(gamepad_button_check_pressed(0,gp_face1))
 {
 	image_index = 0;
 	playerState = playerStates.punch
