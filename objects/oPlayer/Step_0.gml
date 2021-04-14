@@ -107,7 +107,7 @@ if(gamepad_button_check_pressed(0,gp_face2))
 	 }
     }
 	
-	
+	 
 	
 }
 
@@ -118,7 +118,20 @@ if(place_meeting(x + xSpeed,y,oWall))
 	//xSpeed = xSpeed * -1;
 	
 	//stop progress
+	//xSpeed = 0;
+	
+	while(!place_meeting(x+sign(xSpeed),y,oWall))
+	{
+		x = x + sign(xSpeed)*.1;
+	}
+	
+	if(place_meeting(x,y,oWall))
+	{
+		x = x + sign(xSpeed)*-1;
+	}
+	
 	xSpeed = 0;
+	
 	
 	//set boopCount so that text appears above player for 40 frames
 	boopCount = 40;
@@ -131,6 +144,18 @@ if(place_meeting(x,y+ySpeed,oWall))
 	//ySpeed = ySpeed * -1;
 	
 	//stop progress
+	//ySpeed = 0;
+	
+	while(!place_meeting(x ,y+sign(ySpeed),oWall))
+	{
+		y = y + sign(ySpeed)*.1;
+	}
+	
+	if(place_meeting(x,y,oWall))
+	{
+		y = y + sign(ySpeed) * -1;
+	}
+	
 	ySpeed = 0;
 	
 	//set boopCount so that text appears above player for 40 frames
@@ -189,17 +214,24 @@ else if(playerState == playerStates.stand)
 
 
 
-var next_xscale = sign(xSpeed);
+//var next_xscale = sign(xSpeed);
 
-if(next_xscale != 0)
-image_xscale = next_xscale;
+//if(next_xscale != 0)
+//image_xscale = next_xscale;
 
 //put something in the boop bubble
-talk = "v:"+string(ySpeed)+" h:"+string(xSpeed)+" d:"+string(image_xscale);
 
+
+var next_angle = point_direction(x,y,x+xSpeed,y+ySpeed);
+talk = "v:"+string(ySpeed)+" h:"+string(xSpeed)+" d:"+string(image_xscale)+" a:"+string(next_angle);
+
+if(ySpeed != 0 or xSpeed != 0){
+	image_angle = next_angle;
+}
 //move player
 x = x + xSpeed;
 y = y + ySpeed;
+
 
 //decrement the boop 
 if(boopCount > 0){

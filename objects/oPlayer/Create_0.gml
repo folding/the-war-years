@@ -15,6 +15,7 @@ xSpeed = 0;
 ySpeed = 0;
 boopCount = 0;
 talk = "boop";
+lastDir = 0;
 
 if( gamepad_get_axis_deadzone(0) != 0.5)
     {

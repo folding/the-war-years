@@ -1,21 +1,10 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-speed = 5;
+speed = 10;
 
-var target = instance_nearest(x, y, obadguy);
-
-if(instance_exists(target))
-{
-direction = point_direction(x, y, target.x, target.y);
+direction = oPlayer.image_angle;
 
 image_angle = direction;
-
-}
-else
-{
-	direction = random_range(0,359);
-	image_angle = direction;
-}
 
 alarm[0] = room_speed * 4;

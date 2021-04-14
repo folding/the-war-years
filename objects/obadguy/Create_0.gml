@@ -20,3 +20,16 @@ moveX = lengthdir_x(spd,my_dir);
 moveY = lengthdir_y(spd,my_dir);
 
 myPunch = noone;//no one means it's not assigned yet.
+
+
+switch(irandom_range(0,1))
+{
+case 0:
+sprite_index = sbadguy;
+badguy_health = 1;
+break;
+case 1:
+sprite_index = sverybadguy;
+badguy_health =2
+break;
+}

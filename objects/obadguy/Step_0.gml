@@ -9,7 +9,12 @@ if(instance_exists(punch))
 {
 instance_destroy(punch.id,false);
 }
+badguy_health = badguy_health - 1;
+
+if(badguy_health < 0)
+{
 instance_destroy(id,true);
+}
 score++;
 
 }
@@ -35,7 +40,7 @@ if(state == states.idle)
 		state = states.alert;
 	}
 	
-	sprite_index = sbadguy;
+	//sprite_index = sbadguy;
 }
 else if(state == states.wander)
 {
@@ -90,7 +95,7 @@ else if(state == states.wander)
 	}
 	
 	//set sprites
-	sprite_index = sbadguy;
+	//sprite_index = sbadguy;
 	//mirror the sprite when it is moving in the negative direction
 	
 	var next_xscale = sign(moveX);
@@ -140,7 +145,7 @@ else if(state == states.alert)
 	image_angle = point_direction(x,y,x+moveX,y+moveY);
 	
 	//set sprites
-	sprite_index = sbadguy;
+	//sprite_index = sbadguy;
 	
 var next_xscale = sign(moveX);
 
@@ -177,8 +182,8 @@ else if(state == states.attack)
 	
 	
 	//set sprites
-	sprite_index = sbadguy;
+	//sprite_index = sbadguy;
 }
 
 
-talk = string(state)+" x:"+string(moveX)+" y:"+string(moveY);
+talk = "h:"+string(badguy_health)+" s:"+string(state)+" x:"+string(moveX)+" y:"+string(moveY);

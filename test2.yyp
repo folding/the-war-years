@@ -4,6 +4,7 @@
     {"id":{"name":"oExit","path":"objects/oExit/oExit.yy",},"order":3,},
     {"id":{"name":"sfxBoop","path":"sounds/sfxBoop/sfxBoop.yy",},"order":0,},
     {"id":{"name":"oWall","path":"objects/oWall/oWall.yy",},"order":0,},
+    {"id":{"name":"sverybadguy","path":"sprites/sverybadguy/sverybadguy.yy",},"order":6,},
     {"id":{"name":"attack","path":"scripts/attack/attack.yy",},"order":3,},
     {"id":{"name":"sfxTada","path":"sounds/sfxTada/sfxTada.yy",},"order":1,},
     {"id":{"name":"obadguy","path":"objects/obadguy/obadguy.yy",},"order":2,},
