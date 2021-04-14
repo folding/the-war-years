@@ -23,19 +23,18 @@ var directionh = point_direction(0, 0, haxis, 0);
 var directionv = point_direction(0, 0, 0, vaxis);
 
 //work out the speed in each direction (how far the stick is tilted
-var hspeed1 = point_distance(0 ,0, haxis, 0) * 5;
-var vspeed1 = point_distance(0,0,0,vaxis)* 5;
+var hspeed1 = point_distance(0 ,0, haxis, 0) * playerSpeed;
+var vspeed1 = point_distance(0,0,0,vaxis)* playerSpeed;
 
 //prefer analogue stick movement first
 if(vspeed1 > 0 or hspeed1 > 0)
 {
-	
 	var dir = 1;
 	//180 = moving left so make sure we have negative speed
 	if(directionh == 180){
 		dir = -1
 	}
-	xSpeed = hspeed1 * dir;
+	xMove= hspeed1 * dir;
 	
 	dir = 1;
 	//270 = moving down, positive direction
@@ -43,47 +42,25 @@ if(vspeed1 > 0 or hspeed1 > 0)
 	if(directionv == 90){
 		dir = -1;
 	}
-	ySpeed = vspeed1 * dir;
+	yMove= vspeed1 * dir;
 }
+else
+{
+
 //check keypress directions on keyboard and gamepad
-else if(keyboard_check(vk_left) or gamepad_button_check(0,gp_padl))
-{
-	xSpeed = xSpeed-1;
-}
-else if(keyboard_check(vk_right) or gamepad_button_check(0,gp_padr))
-{
-	xSpeed = xSpeed+1;
-}
-else if(keyboard_check(vk_down)or gamepad_button_check(0,gp_padd))
-{
-	//moving down, increase speed by 1
-	ySpeed = ySpeed+1;
-}
-else if(keyboard_check(vk_up)or gamepad_button_check(0,gp_padu))
-{
-	//moving up so decrease the speed by 1 (negative speed is moving up)
-	ySpeed = ySpeed-1;
-}
-else//if no input is detected lets slow the man down little by little
-{
-	if(xSpeed > 0)
-	{
-		xSpeed = xSpeed-1;
-	}else if(xSpeed < 0){
-		xSpeed++;
-	}
-	
-	if(ySpeed > 0)
-	{
-		ySpeed = ySpeed-1;
-	}
-	else if(ySpeed< 0)
-	{
-		ySpeed++;
-	}
+var left = (keyboard_check(vk_left) or keyboard_check(ord("A")) or gamepad_button_check(0,gp_padl));
+var right = (keyboard_check(vk_right) or keyboard_check(ord("D")) or gamepad_button_check(0,gp_padr));
+
+xMove = (right - left) * playerSpeed;
+
+var down = (keyboard_check(vk_down) or keyboard_check(ord("S")) or gamepad_button_check(0,gp_padd));
+var up = (keyboard_check(vk_up) or keyboard_check(ord("W")) or gamepad_button_check(0,gp_padu));
+
+yMove = (down - up) * playerSpeed;
+
 }
 
-if(gamepad_button_check_pressed(0,gp_face1))
+if(gamepad_button_check_pressed(0,gp_face1) or keyboard_check_pressed(vk_space))
 {
 	image_index = 0;
 	playerState = playerStates.punch
@@ -111,85 +88,63 @@ if(gamepad_button_check_pressed(0,gp_face2))
 	
 }
 
+var xCollision = false;
+var yCollision = false;
+
 //check horizontal collision with wall
-if(place_meeting(x + xSpeed,y,oWall))
+if(place_meeting(x + xMove,y,oWall))
 {
-	//bounce by reversing the speed (e.g. 4 becomes -4)
-	//xSpeed = xSpeed * -1;
-	
-	//stop progress
-	//xSpeed = 0;
-	
-	while(!place_meeting(x+sign(xSpeed),y,oWall))
+	while(!place_meeting(x+sign(xMove),y,oWall))
 	{
-		x = x + sign(xSpeed)*.1;
+		x = x + sign(xMove);
 	}
 	
-	if(place_meeting(x,y,oWall))
-	{
-		x = x + sign(xSpeed)*-1;
-	}
-	
-	xSpeed = 0;
-	
-	
+	xMove= 0;
+xCollision = true;	
 	//set boopCount so that text appears above player for 40 frames
 	boopCount = 40;
 }
 
 //check vertical collision with wall
-if(place_meeting(x,y+ySpeed,oWall))
+if(place_meeting(x,y+yMove,oWall))
 {
-	//bounce by changing positive to negative and visa versa
-	//ySpeed = ySpeed * -1;
-	
-	//stop progress
-	//ySpeed = 0;
-	
-	while(!place_meeting(x ,y+sign(ySpeed),oWall))
+	while(!place_meeting(x ,y+sign(yMove),oWall))
 	{
-		y = y + sign(ySpeed)*.1;
+		y = y + sign(yMove);
 	}
 	
-	if(place_meeting(x,y,oWall))
-	{
-		y = y + sign(ySpeed) * -1;
-	}
-	
-	ySpeed = 0;
-	
+	yMove = 0;
+	yCollision = true;
 	//set boopCount so that text appears above player for 40 frames
 	//drawing happens in the draw event
 	boopCount = 40;
-	
 }
 
 //check horizontal collision with exit
-if(place_meeting(x + xSpeed,y,oExit))
+if(place_meeting(x + xMove,y,oExit))
 {
 	//play a sound effect when we touch the exit
 	audio_play_sound(sfxTada,1,0);
 }
 
 //check vertical collision with exit
-if(place_meeting(x,y+ySpeed,oExit))
+if(place_meeting(x,y+yMove,oExit))
 {
 	//play a sound effect when we touch the exit
 	audio_play_sound(sfxTada,1,0);
 }
 
 //if speed is between -1 and 1 just set it to zero to avoid drift
-if(ySpeed < 1 && ySpeed > -1){
-	ySpeed = 0;
+if(yMove < 1 && yMove> -1){
+	yMove= 0;
 }
-if(xSpeed < 1 && xSpeed > -1){
-	xSpeed = 0;
+if(xMove < 1 && xMove> -1){
+	xMove= 0;
 }
 
 
 if(playerState == playerStates.ready_punch)
 {
-	
 	//this isn't working... why?
 	image_index = 0;
 	playerState = playerStates.punch
@@ -214,23 +169,16 @@ else if(playerState == playerStates.stand)
 
 
 
-//var next_xscale = sign(xSpeed);
+var next_angle = point_direction(x,y,x+xMove,y+yMove);
+talk = "v:"+string(yMove)+" h:"+string(xMove)+" d:"+string(image_xscale)+" a:"+string(next_angle)+" xc:"+string(xCollision)+" yc:"+string(yCollision);
 
-//if(next_xscale != 0)
-//image_xscale = next_xscale;
-
-//put something in the boop bubble
-
-
-var next_angle = point_direction(x,y,x+xSpeed,y+ySpeed);
-talk = "v:"+string(ySpeed)+" h:"+string(xSpeed)+" d:"+string(image_xscale)+" a:"+string(next_angle);
-
-if(ySpeed != 0 or xSpeed != 0){
+if((yMove!= 0 or xMove!= 0) or yCollision && xCollision){
 	image_angle = next_angle;
 }
+
 //move player
-x = x + xSpeed;
-y = y + ySpeed;
+x = x + xMove
+y = y + yMove
 
 
 //decrement the boop 

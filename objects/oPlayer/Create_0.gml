@@ -10,17 +10,18 @@ punch
 }
 
 playerState = playerStates.stand;
+playerSpeed = 5;
 counter = 0;
-xSpeed = 0;
-ySpeed = 0;
+xMove = 0;
+yMove = 0;
 boopCount = 0;
 talk = "boop";
 lastDir = 0;
 
 if( gamepad_get_axis_deadzone(0) != 0.5)
-    {
-    gamepad_set_axis_deadzone(0, 0.5);
-    }
+{
+	gamepad_set_axis_deadzone(0, 0.5);
+}
 	
 
 
