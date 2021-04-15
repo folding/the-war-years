@@ -83,9 +83,6 @@ if(gamepad_button_check_pressed(0,gp_face2))
 	instance_create_layer(enemy.x, enemy.y,"Instances",oFirePunch);
 	 }
     }
-	
-	 
-	
 }
 
 var xCollision = false;
@@ -167,10 +164,8 @@ else if(playerState == playerStates.stand)
 }
 
 
-
-
 var next_angle = point_direction(x,y,x+xMove,y+yMove);
-talk = "v:"+string(yMove)+" h:"+string(xMove)+" d:"+string(image_xscale)+" a:"+string(next_angle)+" xc:"+string(xCollision)+" yc:"+string(yCollision);
+talk = "health:"+string(health)+" v:"+string(yMove)+" h:"+string(xMove)+" d:"+string(image_xscale)+" a:"+string(next_angle)+" xc:"+string(xCollision)+" yc:"+string(yCollision);
 
 if((yMove!= 0 or xMove!= 0) or yCollision && xCollision){
 	image_angle = next_angle;
