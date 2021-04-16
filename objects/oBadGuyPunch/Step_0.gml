@@ -18,10 +18,15 @@ if(place_meeting(x,y,oPlayer))
 {
 	gamepad_set_vibration(0,1,1);
 	alarm[0]=room_speed * .5;
-	health = health - 1;
-	visible = false;
-	if(health < 0)
+	
+	if(hasLanded == false)
 	{
-		//we dead.
+		hasLanded = true;
+		health = health - 1;
+		visible = false;
+		if(health < 0)
+		{
+			//we dead.
+		}
 	}
 }

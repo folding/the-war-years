@@ -8,3 +8,5 @@ speed = 4;
 image_angle = direction;
 
 alarm[0] = room_speed * 2;
+
+hasLanded = false;
