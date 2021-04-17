@@ -1,7 +1,5 @@
-/// @description Insert description here
-// You can write your code in this editor
 
-
+//laser/punch collision
 if (place_meeting(x, y, oFirePunch)) {
 
     var punch = instance_nearest(x, y, oFirePunch);
@@ -15,6 +13,8 @@ if (place_meeting(x, y, oFirePunch)) {
     }
     score++;
 }
+
+//states
 
 if (state == states.idle) {
     //idle behavior
@@ -38,12 +38,13 @@ if (state == states.idle) {
     }
 
     //sprite_index = sbadguy;
+	
 } else if (state == states.wander) {
     //wander behavior
     counter = counter + 1;
 
-var yCollision = false;
-var xCollision = false;
+	var yCollision = false;
+	var xCollision = false;
 
     //just don't move if you are stuck on a wall
     if (place_meeting(x + moveX, y, oWall)) {
@@ -61,16 +62,20 @@ var xCollision = false;
 		yCollision = true;
         moveY = 0;
     }
+	
+	worldX = worldX + moveX;
+	worldY = worldY + moveY;
 
-    x += moveX;
-    y += moveY;
+    x = floor(worldX);
+    y = floor(worldY);
 
     direction = point_direction(x, y, oPlayer.x, oPlayer.y);
 	
-var next_angle = point_direction(x,y,x+moveX,y+moveY);
-if((moveY!= 0 or moveX!= 0) or yCollision && xCollision){
-	image_angle = next_angle;
-}
+	var next_angle = point_direction(x,y,x+moveX,y+moveY);
+
+	if((moveY!= 0 or moveX!= 0) or yCollision && xCollision){
+		image_angle = next_angle;
+	}
 
     if (counter >= room_speed * 3) {
         var change = choose(0, 1);
@@ -107,8 +112,8 @@ if((moveY!= 0 or moveX!= 0) or yCollision && xCollision){
     moveX = lengthdir_x(spd, my_dir);
     moveY = lengthdir_y(spd, my_dir);
 
-var yCollision = false;
-var xCollision = false;
+	var yCollision = false;
+	var xCollision = false;
 
     //just don't move if you are stuck on a wall
     if (place_meeting(x + moveX, y, oWall)) {
@@ -143,15 +148,18 @@ var xCollision = false;
 		state = states.ready_attack;
 	}
 
-    x = x + moveX;
-    y = y + moveY;
+	worldX = worldX + moveX;
+	worldY = worldY + moveY;
+
+    x = floor(worldX);
+    y = floor(worldY)
 
     direction = point_direction(x, y, x + moveX, y + moveY);
 
-var next_angle = point_direction(x,y,x+moveX,y+moveY);
-if((moveY!= 0 or moveX!= 0) or yCollision && xCollision){
-	image_angle = next_angle;
-}
+	var next_angle = point_direction(x,y,x+moveX,y+moveY);
+	if((moveY!= 0 or moveX!= 0) or yCollision && xCollision){
+		image_angle = next_angle;
+	}
 
     //set sprites
     //sprite_index = sbadguy;
@@ -167,30 +175,26 @@ if((moveY!= 0 or moveX!= 0) or yCollision && xCollision){
 
 } else if (state == states.attack) {
 
-counter =counter+1;
+	counter =counter+1;
 
     if (image_index > image_number - 1) {
         state = states.alert;
         alarm[0] = room_speed * .2;
-        
 	}
 	
 	if (counter >= room_speed * 2) {
         var change = choose(0,1,2,3,7,8,9,10);
         switch (change) {
         case 10:
-            
-		var shot = instance_create_layer(x,y,"Instances",oBadGuyPunch);
-		shot.direction = direction;
-		shot.image_angle = image_angle;
-		break;
+			var shot = instance_create_layer(x,y,"Instances",oBadGuyPunch);
+			shot.direction = direction;
+			shot.image_angle = image_angle;
+			break;
         }
     }
-		
-    
 
     //set sprites
     //sprite_index = sbadguy;
 }
 
-talk = "h:" + string(badguy_health) + " s:" + string(state) + " x:" + string(moveX) + " y:" + string(moveY);
+talk = "h:" + string(badguy_health) + " s:" + string(state) + " x:" + string(x) + " y:" + string(y);

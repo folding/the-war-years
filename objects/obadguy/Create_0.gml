@@ -19,6 +19,9 @@ my_dir = irandom_range(0,359);
 moveX = lengthdir_x(spd,my_dir);
 moveY = lengthdir_y(spd,my_dir);
 
+worldX = x;
+worldY = y;
+
 myPunch = noone;//no one means it's not assigned yet.
 
 
