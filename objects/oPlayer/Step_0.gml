@@ -175,7 +175,6 @@ if((yMove!= 0 or xMove!= 0) or yCollision && xCollision){
 x = x + xMove
 y = y + yMove
 
-
 //decrement the boop 
 if(boopCount > 0){
 	boopCount--;

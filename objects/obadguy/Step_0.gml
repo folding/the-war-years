@@ -143,8 +143,8 @@ var xCollision = false;
 		state = states.ready_attack;
 	}
 
-    x += moveX;
-    y += moveY;
+    x = x + moveX;
+    y = y + moveY;
 
     direction = point_direction(x, y, x + moveX, y + moveY);
 
