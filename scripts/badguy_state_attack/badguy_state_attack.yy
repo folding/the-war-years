@@ -6,7 +6,7 @@
     "path": "folders/Scripts/States/badguys.yy",
   },
   "resourceVersion": "1.0",
-  "name": "idle",
+  "name": "badguy_state_attack",
   "tags": [],
   "resourceType": "GMScript",
 }

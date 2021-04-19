@@ -11,6 +11,13 @@ attack
 
 state = states.idle;
 
+states_array[states.idle] = badguy_state_idle;
+states_array[states.wander] = badguy_state_wander;
+states_array[states.alert] = badguy_state_alert;
+states_array[states.ready_attack] = badguy_state_ready_attack;
+states_array[states.attack] = badguy_state_attack;
+
+
 counter = 0;
 spd = 1.5;
 talk = "idle";
