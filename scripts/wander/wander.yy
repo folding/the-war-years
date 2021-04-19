@@ -6,7 +6,7 @@
     "path": "folders/Scripts/States/badguys.yy",
   },
   "resourceVersion": "1.0",
-  "name": "badguy_state_alert",
+  "name": "wander",
   "tags": [],
   "resourceType": "GMScript",
 }

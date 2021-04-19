@@ -6,7 +6,7 @@
     "path": "folders/Scripts/States/badguys.yy",
   },
   "resourceVersion": "1.0",
-  "name": "Script6",
+  "name": "alert",
   "tags": [],
   "resourceType": "GMScript",
 }
