@@ -18,6 +18,8 @@ if (place_meeting(x, y, oFirePunch)) {
 
 if (state == states.idle) {
     //idle behavior
+	
+	#region idle
     counter = counter + 1;
 
     if (counter >= room_speed * 3) {
@@ -38,9 +40,10 @@ if (state == states.idle) {
     }
 
     //sprite_index = sbadguy;
-	
+	#endregion
 } else if (state == states.wander) {
     //wander behavior
+	#region wander
     counter = counter + 1;
 
 	var yCollision = false;
@@ -104,8 +107,10 @@ if (state == states.idle) {
 
     //if(next_xscale != 0)
     //image_xscale = next_xscale;
+	#endregion
 } else if (state == states.alert) {
     //alert behavior
+	#region alert
     //point towards player
     my_dir = point_direction(x, y, oPlayer.x, oPlayer.y);
     //calculate move towards player 1
@@ -168,6 +173,8 @@ if (state == states.idle) {
 
     //if(next_xscale != 0)
     //image_xscale = next_xscale;
+	
+	#endregion
 
 } else if (state == states.ready_attack) {
     image_index = 0;
@@ -175,6 +182,7 @@ if (state == states.idle) {
 
 } else if (state == states.attack) {
 
+	#region attack
 	counter =counter+1;
 
     if (image_index > image_number - 1) {
@@ -195,6 +203,7 @@ if (state == states.idle) {
 
     //set sprites
     //sprite_index = sbadguy;
+	#endregion
 }
 
 talk = "h:" + string(badguy_health) + " s:" + string(state) + " x:" + string(x) + " y:" + string(y);

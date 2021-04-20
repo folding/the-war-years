@@ -14,6 +14,7 @@
 //
 //0,10 - - - - - - - - -  10,10
 
+#region user input
 //get the direction info from the gamepad analogue stick
 var haxis = gamepad_axis_value(0, gp_axislh);
 var vaxis = gamepad_axis_value(0, gp_axislv);
@@ -85,6 +86,9 @@ if(gamepad_button_check_pressed(0,gp_face2))
     }
 }
 
+#endregion
+
+#region collisions
 var xCollision = false;
 var yCollision = false;
 
@@ -129,7 +133,16 @@ if(place_meeting(x,y+yMove,oExit))
 {
 	//play a sound effect when we touch the exit
 	audio_play_sound(sfxTada,1,0);
+	
+	
+	if(instance_number(obadguy) == 0)
+	{
+		room_goto_next()
+	}
 }
+
+
+#endregion
 
 //if speed is between -1 and 1 just set it to zero to avoid drift
 if(yMove < 1 && yMove> -1){
