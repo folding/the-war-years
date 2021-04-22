@@ -37,4 +37,15 @@ if(place_meeting(x,y,oPlayer) and can_hurt_player == true)
 {
 	health = health -1;
 	instance_destroy(id,false);
+	
+	if(health < 0)
+	{
+		//we dead.
+		var player = instance_nearest(x,y,oPlayer);
+			
+		if(instance_exists(player))
+		{
+			player.sprite_index = Sdeadyou;
+		}
+	}
 }

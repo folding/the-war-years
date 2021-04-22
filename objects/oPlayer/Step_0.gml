@@ -192,3 +192,8 @@ y = y + yMove
 if(boopCount > 0){
 	boopCount--;
 }
+
+if(health < 0)
+{
+	sprite_index = Sdeadyou;
+}

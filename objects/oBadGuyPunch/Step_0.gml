@@ -27,6 +27,12 @@ if(place_meeting(x,y,oPlayer))
 		if(health < 0)
 		{
 			//we dead.
+			var player = instance_nearest(x,y,oPlayer);
+			
+			if(instance_exists(player))
+			{
+				player.sprite_index = Sdeadyou;
+			}
 		}
 	}
 }
