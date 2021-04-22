@@ -24,12 +24,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"a695ecf5-17f1-44fa-92a7-ea0462c73198","path":"sprites/Sprite9/Sprite9.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"a695ecf5-17f1-44fa-92a7-ea0462c73198","path":"sprites/Sprite9/Sprite9.yy",},"LayerId":{"name":"0e226898-c316-4e2a-a692-ee8757e2af96","path":"sprites/Sprite9/Sprite9.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"Sprite9","path":"sprites/Sprite9/Sprite9.yy",},"resourceVersion":"1.0","name":"a695ecf5-17f1-44fa-92a7-ea0462c73198","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"a695ecf5-17f1-44fa-92a7-ea0462c73198","path":"sprites/Sdeadyou/Sdeadyou.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"a695ecf5-17f1-44fa-92a7-ea0462c73198","path":"sprites/Sdeadyou/Sdeadyou.yy",},"LayerId":{"name":"0e226898-c316-4e2a-a692-ee8757e2af96","path":"sprites/Sdeadyou/Sdeadyou.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"Sdeadyou","path":"sprites/Sdeadyou/Sdeadyou.yy",},"resourceVersion":"1.0","name":"a695ecf5-17f1-44fa-92a7-ea0462c73198","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
-    "spriteId": {"name":"Sprite9","path":"sprites/Sprite9/Sprite9.yy",},
+    "spriteId": {"name":"Sdeadyou","path":"sprites/Sdeadyou/Sdeadyou.yy",},
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -41,7 +41,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"5b2693fd-4a55-451b-b714-6684dee6843c","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"a695ecf5-17f1-44fa-92a7-ea0462c73198","path":"sprites/Sprite9/Sprite9.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"5b2693fd-4a55-451b-b714-6684dee6843c","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"a695ecf5-17f1-44fa-92a7-ea0462c73198","path":"sprites/Sdeadyou/Sdeadyou.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
     ],
     "visibleRange": null,
@@ -58,9 +58,9 @@
     "yorigin": 0,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"Sprite9","path":"sprites/Sprite9/Sprite9.yy",},
+    "parent": {"name":"Sdeadyou","path":"sprites/Sdeadyou/Sdeadyou.yy",},
     "resourceVersion": "1.3",
-    "name": "Sprite9",
+    "name": "Sdeadyou",
     "tags": [],
     "resourceType": "GMSequence",
   },
@@ -73,7 +73,7 @@
     "path": "folders/Sprites.yy",
   },
   "resourceVersion": "1.0",
-  "name": "Sprite9",
+  "name": "Sdeadyou",
   "tags": [],
   "resourceType": "GMSprite",
 }
