@@ -70,7 +70,7 @@ if(gamepad_button_check_pressed(0,gp_face1) or keyboard_check_pressed(vk_space))
 	instance_create_layer(x,y,"Instances",oFirePunch);
 }
 
-if(gamepad_button_check_pressed(0,gp_face2))
+if(gamepad_button_check_pressed(0,gp_face2) || keyboard_check_pressed(ord("B")))
 {
 	image_index = 0;
 	playerState = playerStates.punch
