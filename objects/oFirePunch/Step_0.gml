@@ -9,10 +9,10 @@ if(place_meeting(x + hspeed,y,oWall))
 	if(can_hurt_player == false)
 	{
 		can_hurt_player = true;
+		//make the bounce have a slightly random direction
+		direction = direction + irandom_range(-10,10);
 	}
 	
-	//make the bounce have a slightly random direction
-	direction = direction + irandom_range(-10,10);
 	image_angle = direction;
 }
 
