@@ -86,6 +86,19 @@ if(gamepad_button_check_pressed(0,gp_face2) || keyboard_check_pressed(ord("B")))
     }
 }
 
+if(keyboard_check(vk_control) && keyboard_check_pressed(ord("D")))
+{
+	//global.showTalk = !global.showTalk;
+	
+	if(global.showTalk == true)
+	{
+		global.showTalk = false;
+	}
+	else
+	{
+		global.showTalk = true;
+	}
+}
 #endregion
 
 #region collisions

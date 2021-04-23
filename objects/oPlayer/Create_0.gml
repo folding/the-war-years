@@ -18,6 +18,8 @@ boopCount = 0;
 talk = "boop";
 lastDir = 0;
 
+global.showTalk = false;
+
 if( gamepad_get_axis_deadzone(0) != 0.5)
 {
 	gamepad_set_axis_deadzone(0, 0.5);

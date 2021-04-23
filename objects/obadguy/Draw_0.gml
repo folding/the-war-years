@@ -3,4 +3,7 @@
 draw_self();
 
 
-draw_text(x+32,y-16,talk);
+if(global.showTalk)
+{
+	draw_text(x+32,y-16,talk);
+}
