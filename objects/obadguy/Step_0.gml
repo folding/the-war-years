@@ -12,7 +12,19 @@ if (place_meeting(x, y, oFirePunch)) {
         instance_destroy(id, true);
     }
     score++;
+;
 }
+
+if(place_meeting(x+moveX,y,obadguy))
+{
+	state = states.bounce_x;
+}
+
+if(place_meeting(x,y+moveY,obadguy))
+{
+	state = states.bounce_y;
+}
+
 
 //states
 
@@ -41,7 +53,16 @@ if (state == states.idle) {
 
     //sprite_index = sbadguy;
 	#endregion
-} else if (state == states.wander) {
+} 
+else if (state == states.bounce_x) {
+	moveX = moveX * -1;
+	state = states.wander;
+} 
+else if (state == states.bounce_y){
+	moveY = moveY * -1;
+	state = states.wander;
+}
+else if (state == states.wander) {
     //wander behavior
 	#region wander
     counter = counter + 1;

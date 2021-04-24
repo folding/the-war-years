@@ -6,7 +6,9 @@ idle,
 wander,
 alert,
 ready_attack,
-attack
+attack,
+bounce_x,
+bounce_y
 }
 
 state = states.idle;
