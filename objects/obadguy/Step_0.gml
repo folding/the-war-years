@@ -28,6 +28,16 @@ if(place_meeting(x,y+moveY,obadguy))
 
 //states
 
+if (state == states.bounce_x) {
+	moveX = moveX * -1.5;
+	state = states.wander;
+} 
+if (state == states.bounce_y){
+	moveY = moveY * -1.5;
+	state = states.wander;
+}
+
+
 if (state == states.idle) {
     //idle behavior
 	
@@ -54,14 +64,6 @@ if (state == states.idle) {
     //sprite_index = sbadguy;
 	#endregion
 } 
-else if (state == states.bounce_x) {
-	moveX = moveX * -1;
-	state = states.wander;
-} 
-else if (state == states.bounce_y){
-	moveY = moveY * -1;
-	state = states.wander;
-}
 else if (state == states.wander) {
     //wander behavior
 	#region wander
