@@ -86,6 +86,26 @@ if(gamepad_button_check_pressed(0,gp_face2) || keyboard_check_pressed(ord("B")))
     }
 }
 
+if(gamepad_button_check_pressed(0,gp_face3) || keyboard_check_pressed(ord("X")))
+{
+	image_index = 0;
+	playerState = playerStates.punch
+	//score = score +1;
+	
+	for (var i = 0; i < instance_number(obadguy); ++i;)
+    {
+     var enemy = instance_find(obadguy,i);
+	 
+	 //if(enemy.x > x){
+		var shot = instance_create_layer(x, y,"Instances",oFirePunch);
+		var dir = point_direction(x,y,enemy.x,enemy.y);
+		shot.direction = dir;
+		shot.image_angle = dir;
+	 //}
+    }
+}
+
+
 if(keyboard_check(vk_control) && keyboard_check_pressed(ord("D")))
 {
 	//global.showTalk = !global.showTalk;

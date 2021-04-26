@@ -5,6 +5,9 @@ draw_self();
 if(global.showTalk){
 draw_text(x+32,y-16,talk);
 }
+else{
+draw_text(x+32,y-16,string(health));
+}
 
 var vx = camera_get_view_x(view_camera[0]);
 var vy = camera_get_view_y(view_camera[0]);
