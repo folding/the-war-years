@@ -30,10 +30,17 @@ if(place_meeting(x,y+moveY,obadguy))
 
 if (state == states.bounce_x) {
 	moveX = moveX * -1.5;
+	if(moveX > 10)
+	{
+		moveX = 10;
+	}
 	state = states.wander;
 } 
 if (state == states.bounce_y){
 	moveY = moveY * -1.5;
+	if(moveY > 10){
+		moveY = 10;
+	}
 	state = states.wander;
 }
 
@@ -60,6 +67,12 @@ if (state == states.idle) {
         //if we are less than 200 away from player go to alert state
         state = states.alert;
     }
+	if(x < 0 or y < 0 or x > window_get_width() or y > window_get_height())
+	{
+		//if we are offscreen go to alert so we move back towards player
+        state = states.alert;
+	}
+	
 
     //sprite_index = sbadguy;
 	#endregion

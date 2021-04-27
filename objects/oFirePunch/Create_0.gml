@@ -10,3 +10,5 @@ image_angle = direction;
 alarm[0] = room_speed * 4;
 
 can_hurt_player = false;
+
+gamepad_set_vibration(0,0,0);

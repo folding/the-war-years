@@ -14,6 +14,21 @@ if(place_meeting(x + hspeed,y,oWall))
 	}
 	
 	image_angle = direction;
+	
+	//damage the wall
+	
+var wall = instance_nearest(x+hspeed, y,oWall);
+if(instance_exists(wall))
+{
+	if(wall.damage_left == 0)
+	{
+	instance_destroy(wall.id,false);
+	}
+	else
+	{
+		wall.damage_left = wall.damage_left - 1;
+	}
+}
 }
 
 //check vertical collision with wall
@@ -26,11 +41,27 @@ if(place_meeting(x,y+vspeed,oWall))
 	if(can_hurt_player == false)
 	{
 		can_hurt_player = true;
+		
+		//make the bounce have a slightly random direction
+		direction = direction + irandom_range(-10,10);
 	}
 	
-	//make the bounce have a slightly random direction
-	direction = direction + irandom_range(-10,10);
 	image_angle = direction;
+	
+	//damage the wall
+	
+var wall = instance_nearest(x, y+vspeed,oWall);
+if(instance_exists(wall))
+{
+	if(wall.damage_left == 0)
+	{
+	instance_destroy(wall.id,false);
+	}
+	else
+	{
+		wall.damage_left = wall.damage_left - 1;
+	}
+}
 }
 
 if(place_meeting(x,y,oPlayer) and can_hurt_player == true)
