@@ -27,5 +27,5 @@ if(instance_exists(far_guy))
 	draw_text(far_guy.x+32,far_guy.y-16,"Hi");
 }
 
-draw_text(vx + 5, vy + 5, "SCORE " + string(score)+ " ME:"+ string(x) +","+string(y)+" ENEMEY COUNT:"+string(enemy_count)+" FAR:"+string(far_guy_x)+","+string(far_guy_y));
+draw_text(vx + 5, vy + 5, "SCORE " + string(score)+ " ME:"+ string(x) +","+string(y)+" ENEMY COUNT:"+string(enemy_count)+" FAR:"+string(far_guy_x)+","+string(far_guy_y));
 

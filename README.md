@@ -15,7 +15,7 @@ We don't know where this is going. but currently it has a top-down perspective a
 ## keyboard
 * arrows move you around
 * space bar shoots
-## xbox controler
+## xbox controller
 * analog stick or d-pad move
 * a - shoots
 * b - shoots everything to the right
