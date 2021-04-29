@@ -2,7 +2,7 @@
 
 # A game to learn gamemaker studio 2.3
 
-We don't know where this is going. but currently it has a top-down perspective and shooty lasers.
+We don't know where this is going. but currently it has a top-down perspective and shooty lasers.  The walls can be destoyed now too.
 
 # obadguys
 ## have states
@@ -13,10 +13,14 @@ We don't know where this is going. but currently it has a top-down perspective a
 
 # controller input and keyboard input
 ## keyboard
-* arrows move you around
+* wasd or arrows move you around
 * space bar shoots
+* b button shoots everything to the right
+* ctrl-d toggles debug info
+* 
 ## xbox controller
 * analog stick or d-pad move
 * a - shoots
 * b - shoots everything to the right
+* x - shoots everything from your position
 * alarm system used to vibrate controller when shot
