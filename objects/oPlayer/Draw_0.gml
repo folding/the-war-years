@@ -1,5 +1,9 @@
 /// @description Insert description here
 // You can write your code in this editor
+
+var did = sprite_index;
+
+
 draw_self();
 
 if(global.showTalk){

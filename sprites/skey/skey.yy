@@ -1,5 +1,5 @@
 {
-  "bboxMode": 2,
+  "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
   "origin": 4,
@@ -7,10 +7,10 @@
   "edgeFiltering": false,
   "collisionTolerance": 0,
   "swfPrecision": 2.525,
-  "bbox_left": 16,
-  "bbox_right": 47,
-  "bbox_top": 16,
-  "bbox_bottom": 47,
+  "bbox_left": 19,
+  "bbox_right": 46,
+  "bbox_top": 26,
+  "bbox_bottom": 36,
   "HTile": false,
   "VTile": false,
   "For3D": false,
@@ -24,12 +24,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"a695ecf5-17f1-44fa-92a7-ea0462c73198","path":"sprites/Sdeadyou/Sdeadyou.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"a695ecf5-17f1-44fa-92a7-ea0462c73198","path":"sprites/Sdeadyou/Sdeadyou.yy",},"LayerId":{"name":"0e226898-c316-4e2a-a692-ee8757e2af96","path":"sprites/Sdeadyou/Sdeadyou.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"Sdeadyou","path":"sprites/Sdeadyou/Sdeadyou.yy",},"resourceVersion":"1.0","name":"a695ecf5-17f1-44fa-92a7-ea0462c73198","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"c4e9a31b-1ac7-49ca-b1fe-8cc390a54646","path":"sprites/skey/skey.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"c4e9a31b-1ac7-49ca-b1fe-8cc390a54646","path":"sprites/skey/skey.yy",},"LayerId":{"name":"72284841-f486-4e0b-a21a-79bd476fb335","path":"sprites/skey/skey.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"skey","path":"sprites/skey/skey.yy",},"resourceVersion":"1.0","name":"c4e9a31b-1ac7-49ca-b1fe-8cc390a54646","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
-    "spriteId": {"name":"Sdeadyou","path":"sprites/Sdeadyou/Sdeadyou.yy",},
+    "spriteId": {"name":"skey","path":"sprites/skey/skey.yy",},
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -41,7 +41,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"5b2693fd-4a55-451b-b714-6684dee6843c","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"a695ecf5-17f1-44fa-92a7-ea0462c73198","path":"sprites/Sdeadyou/Sdeadyou.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"9ac44315-738e-4c4c-9c38-e2de7b6ac9cc","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"c4e9a31b-1ac7-49ca-b1fe-8cc390a54646","path":"sprites/skey/skey.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
     ],
     "visibleRange": null,
@@ -58,14 +58,14 @@
     "yorigin": 32,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"Sdeadyou","path":"sprites/Sdeadyou/Sdeadyou.yy",},
+    "parent": {"name":"skey","path":"sprites/skey/skey.yy",},
     "resourceVersion": "1.3",
-    "name": "Sdeadyou",
+    "name": "skey",
     "tags": [],
     "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"0e226898-c316-4e2a-a692-ee8757e2af96","tags":[],"resourceType":"GMImageLayer",},
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"72284841-f486-4e0b-a21a-79bd476fb335","tags":[],"resourceType":"GMImageLayer",},
   ],
   "nineSlice": null,
   "parent": {
@@ -73,7 +73,7 @@
     "path": "folders/Sprites.yy",
   },
   "resourceVersion": "1.0",
-  "name": "Sdeadyou",
+  "name": "skey",
   "tags": [],
   "resourceType": "GMSprite",
 }
