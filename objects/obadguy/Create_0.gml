@@ -1,6 +1,8 @@
 
 /// @description Insert description here
 // You can write your code in this editor
+
+//these are the states a bad guy can have
 enum states{
 idle,
 wander,
@@ -11,22 +13,29 @@ bounce_x,
 bounce_y
 }
 
+//when bad guy is created set state to idle
 state = states.idle;
 
 counter = 0;
-spd = 1.5;
+spd = 1.5;//speed
 talk = "idle";
 
+//randomly set direction
 my_dir = irandom_range(0,359);
+
+//use direction and speed to figure out how
+//far to move in the x and y directions
 moveX = lengthdir_x(spd,my_dir);
 moveY = lengthdir_y(spd,my_dir);
 
+//get current location in the world
 worldX = x;
 worldY = y;
 
+//initialize punch to nothing
 myPunch = noone;//no one means it's not assigned yet.
 
-
+//randomly pick sprite bad, very bad, or super bad
 switch(irandom_range(0,2))
 {
 case 0:

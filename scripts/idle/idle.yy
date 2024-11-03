@@ -1,12 +1,13 @@
 {
-  "isDnD": false,
-  "isCompatibility": false,
-  "parent": {
-    "name": "badguys",
-    "path": "folders/Scripts/States/badguys.yy",
+  "$GMScript":"v1",
+  "%Name":"idle",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"idle",
+  "parent":{
+    "name":"badguys",
+    "path":"folders/Scripts/States/badguys.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "idle",
-  "tags": [],
-  "resourceType": "GMScript",
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }
