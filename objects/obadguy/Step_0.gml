@@ -14,7 +14,14 @@ if (place_meeting(x, y, oFirePunch)) {
 	//if health is less than zero destroy this enemy
     if (badguy_health < 0) {
         instance_destroy(id, true);
+		part_particles_create(global.p_system, x, y, global.particle1, 50);
     }
+	else
+	{
+        var blood_direction = point_direction(oPlayer.x, oPlayer.y,x, y);
+        part_type_direction(global.pt_blood, blood_direction-20, blood_direction+20, 0, 30);
+		part_particles_create(global.p_system, x, y, global.pt_blood, badguy_health+1);
+	}
 	//increment the score by 1
     score++;
 }
